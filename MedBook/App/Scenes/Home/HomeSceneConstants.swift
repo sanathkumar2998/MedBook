@@ -1,0 +1,14 @@
+//
+//  HomeSceneConstants.swift
+//  MedBook
+//
+//  Created by Sanath on 12/04/24.
+//
+
+import Foundation
+
+enum HomeSceneConstants {
+    static let homeStoryboard = "Home"
+    static let homeViewController = "HomeViewController"
+    static let bookTableViewCell = "BookTableViewCell"
+}
