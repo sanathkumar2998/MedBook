@@ -16,7 +16,10 @@ class SignupViewController: UIViewController {
     
     @IBOutlet private var emailTextField: TextField!
     @IBOutlet private var passwordTextField: TextField!
-    @IBOutlet private var passwordRequirementsLabel: UILabel!
+    @IBOutlet private var characterCountCheckbox: CheckboxWithTitle!
+    @IBOutlet private var digitCheckbox: CheckboxWithTitle!
+    @IBOutlet private var upperCaseCheckbox: CheckboxWithTitle!
+    @IBOutlet private var specialCharacterCheckbox: CheckboxWithTitle!
     @IBOutlet private var countryPicker: PickerView!
     @IBOutlet private var signupButton: UIButton!
     @IBOutlet private var containerView: UIView!
@@ -51,12 +54,14 @@ class SignupViewController: UIViewController {
         if let text = emailTextField.text {
             updateErrorTextForEmail(email: text)
         }
+        updateSignupButton()
     }
     
     @IBAction func passwordChanged(_ sender: Any) {
         if let text = passwordTextField.text {
-            updateErrorTextForPassword(password: text)
+            updatePasswordValidationCheckboxes(password: text)
         }
+        updateSignupButton()
     }
     
     @IBAction private func handleSignupAction() {
@@ -79,7 +84,8 @@ class SignupViewController: UIViewController {
 private extension SignupViewController {
     func setup() {
         setupNavBarBackButton()
-        setupPasswordRequirementsLabel()
+        setupPasswordTextField()
+        setupPasswordCheckboxes()
         setupCountryPicker()
         toggleActivityIndicator(show: true)
     }
@@ -93,14 +99,15 @@ private extension SignupViewController {
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
-    func setupPasswordRequirementsLabel() {
-        passwordRequirementsLabel.text = [
-            SignupStringConstants.passwordRequirementText,
-            SignupStringConstants.characterCountRequirementText,
-            SignupStringConstants.digitRequirementText,
-            SignupStringConstants.uppercaseRequirementText,
-            SignupStringConstants.specialCharacterRequirementText
-        ].joined(separator: SignupStringConstants.separator)
+    func setupPasswordTextField() {
+        passwordTextField.enableShowPasswordButton()
+    }
+    
+    func setupPasswordCheckboxes() {
+        characterCountCheckbox.setTitle(title: SignupStringConstants.characterCountRequirementText)
+        digitCheckbox.setTitle(title: SignupStringConstants.digitRequirementText)
+        upperCaseCheckbox.setTitle(title: SignupStringConstants.uppercaseRequirementText)
+        specialCharacterCheckbox.setTitle(title: SignupStringConstants.specialCharacterRequirementText)
     }
     
     func setupCountryPicker() {
@@ -114,11 +121,10 @@ private extension SignupViewController {
     func updateSignupButton() {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
-            let nonEmptyData = !email.isEmpty && !password.isEmpty
-            let validData = emailTextField.errorText.isEmpty && passwordTextField.errorText.isEmpty
-            signupButton.isEnabled = nonEmptyData && validData
+            let isEmailValid = email.isValidEmail()
+            let isPasswordValid = isPasswordValid(password: password)
+            signupButton.isEnabled = isEmailValid && isPasswordValid
         }
-        
     }
     
     func updateErrorTextForEmail(email: String) {
@@ -131,22 +137,6 @@ private extension SignupViewController {
         emailTextField.errorText = errorText
     }
     
-    func updateErrorTextForPassword(password: String) {
-        let errorText: String
-        if password.count < 8 {
-            errorText = SignupStringConstants.characterCountErrorText
-        } else if password.containsDigit() {
-            errorText = SignupStringConstants.digitErrorText
-        } else if password.containsUppercase() {
-            errorText = SignupStringConstants.uppercaseErrorText
-        } else if password.containsSpecialCharacter() {
-            errorText = SignupStringConstants.specialCharacterErrorText
-        } else {
-            errorText = ""
-        }
-        passwordTextField.errorText = errorText
-    }
-    
     func toggleActivityIndicator(show: Bool) {
         if show {
             activityIndicator.startAnimating()
@@ -155,6 +145,46 @@ private extension SignupViewController {
             activityIndicator.stopAnimating()
             containerView.layer.opacity = 1.0
         }
+    }
+    
+    func updatePasswordValidationCheckboxes(password: String) {
+        if password.count < 8 {
+            characterCountCheckbox.setChecked(checked: false)
+        } else {
+            characterCountCheckbox.setChecked(checked: true)
+        }
+        
+        if !password.containsDigit() {
+            digitCheckbox.setChecked(checked: false)
+        } else {
+            digitCheckbox.setChecked(checked: true)
+        }
+        
+        if !password.containsUppercase() {
+            upperCaseCheckbox.setChecked(checked: false)
+        } else {
+            upperCaseCheckbox.setChecked(checked: true)
+        }
+        
+        if !password.containsSpecialCharacter() {
+            specialCharacterCheckbox.setChecked(checked: false)
+        } else {
+            specialCharacterCheckbox.setChecked(checked: true)
+        }
+    }
+    
+    func isPasswordValid(password: String) -> Bool {
+        var isValidPassword = true
+        if password.count < 8 {
+            isValidPassword = false
+        } else if !password.containsDigit() {
+            isValidPassword = false
+        } else if !password.containsUppercase() {
+            isValidPassword = false
+        } else if !password.containsSpecialCharacter() {
+            isValidPassword = false
+        }
+        return isValidPassword
     }
 }
 
@@ -190,7 +220,6 @@ extension SignupViewController: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            updateSignupButton()
             textField.resignFirstResponder()
         }
         return false

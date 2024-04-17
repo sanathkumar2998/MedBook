@@ -10,6 +10,7 @@ import UIKit
 /// Custom TextField with the ability to show an error message below it.
 class TextField: UITextField {
     private var errorLabel: UILabel?
+    private var showPasswordButton: UIButton?
     
     var errorText: String = "" {
         didSet {
@@ -27,6 +28,10 @@ class TextField: UITextField {
         super.init(coder: coder)
         
         setup()
+    }
+    
+    func enableShowPasswordButton() {
+        setupShowPasswordButton()
     }
 }
 
@@ -51,6 +56,38 @@ private extension TextField {
         
         errorLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14)
         errorLabel.textColor = .red
+    }
+    
+    func setupShowPasswordButton() {
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        containerView.addSubview(button)
+        button.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.fill"), for: .selected)
+        button.tintColor = .black
+        rightView = containerView
+        rightViewMode = .always
+        button.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        showPasswordButton = button
+    }
+    
+    @objc func togglePasswordVisibility() {
+        showPasswordButton?.isSelected.toggle()
+        isSecureTextEntry.toggle()
+        
+        if let existingText = text,
+           isSecureTextEntry {
+            deleteBackward()
+            
+            if let textRange = textRange(from: beginningOfDocument, to: endOfDocument) {
+                replace(textRange, withText: existingText)
+            }
+            
+            if let existingSelectedTextRange = selectedTextRange {
+                selectedTextRange = nil
+                selectedTextRange = existingSelectedTextRange
+            }
+        }
     }
     
     func updateErrorLabel() {

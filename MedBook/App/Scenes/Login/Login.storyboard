@@ -75,23 +75,63 @@
                                             <action selector="handleLoginAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="W6a-Bz-1jo"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJg-iY-8dM" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="276" width="361" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="HhB-cJ-NcW"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unj-xR-4qh" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="316" width="361" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="IFr-Zh-vJM"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aan-gg-Yu1" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="356" width="361" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="lSO-RC-u7P"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPa-RZ-K4b" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="396" width="361" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="SQT-pt-ILP"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jPa-RZ-K4b" secondAttribute="trailing" constant="16" id="1to-hn-7TS"/>
                                     <constraint firstItem="BX3-43-Rcw" firstAttribute="centerX" secondItem="gug-t2-Bve" secondAttribute="centerX" id="2lc-Ao-XSj"/>
                                     <constraint firstAttribute="trailing" secondItem="dxT-8p-AgO" secondAttribute="trailing" constant="16" id="3fz-FK-zwH"/>
                                     <constraint firstAttribute="trailing" secondItem="Ykt-t3-5A3" secondAttribute="trailing" constant="16" id="5ia-Xg-klR"/>
                                     <constraint firstItem="dxT-8p-AgO" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="EDk-Wd-qOl"/>
+                                    <constraint firstItem="jPa-RZ-K4b" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="HFH-85-mZF"/>
+                                    <constraint firstItem="aan-gg-Yu1" firstAttribute="top" secondItem="unj-xR-4qh" secondAttribute="bottom" constant="8" id="MwM-6R-StY"/>
                                     <constraint firstAttribute="bottom" secondItem="BX3-43-Rcw" secondAttribute="bottom" constant="16" id="WYm-gI-3Bo"/>
                                     <constraint firstItem="Ykt-t3-5A3" firstAttribute="top" secondItem="gug-t2-Bve" secondAttribute="top" constant="16" id="X2j-Hl-F8d"/>
                                     <constraint firstItem="kiH-Hk-anr" firstAttribute="top" secondItem="tSy-Yh-yWq" secondAttribute="bottom" constant="32" id="XfH-kn-A2G"/>
                                     <constraint firstItem="dxT-8p-AgO" firstAttribute="top" secondItem="kiH-Hk-anr" secondAttribute="bottom" constant="32" id="Ya0-tE-AYI"/>
+                                    <constraint firstItem="jPa-RZ-K4b" firstAttribute="top" secondItem="aan-gg-Yu1" secondAttribute="bottom" constant="8" id="YsR-tX-aRT"/>
+                                    <constraint firstItem="XJg-iY-8dM" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="ZJh-Tl-LTG"/>
+                                    <constraint firstItem="aan-gg-Yu1" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="axH-Lm-oZa"/>
                                     <constraint firstItem="tSy-Yh-yWq" firstAttribute="top" secondItem="Ykt-t3-5A3" secondAttribute="bottom" constant="16" id="bCh-lY-9pz"/>
+                                    <constraint firstAttribute="trailing" secondItem="unj-xR-4qh" secondAttribute="trailing" constant="16" id="frb-gi-Tdx"/>
                                     <constraint firstItem="tSy-Yh-yWq" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="g0L-n3-rLS"/>
+                                    <constraint firstAttribute="trailing" secondItem="aan-gg-Yu1" secondAttribute="trailing" constant="16" id="gQd-zj-wr6"/>
+                                    <constraint firstAttribute="trailing" secondItem="XJg-iY-8dM" secondAttribute="trailing" constant="16" id="he3-bA-9lZ"/>
                                     <constraint firstItem="Ykt-t3-5A3" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="kZH-I3-SGD"/>
                                     <constraint firstAttribute="trailing" secondItem="kiH-Hk-anr" secondAttribute="trailing" constant="16" id="pRO-dm-FLD"/>
+                                    <constraint firstItem="XJg-iY-8dM" firstAttribute="top" secondItem="dxT-8p-AgO" secondAttribute="bottom" constant="24" id="w8A-UW-dLB"/>
                                     <constraint firstAttribute="trailing" secondItem="tSy-Yh-yWq" secondAttribute="trailing" constant="16" id="yHY-Q2-IOZ"/>
+                                    <constraint firstItem="unj-xR-4qh" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="yJ4-PS-riC"/>
                                     <constraint firstItem="kiH-Hk-anr" firstAttribute="leading" secondItem="gug-t2-Bve" secondAttribute="leading" constant="16" id="yUl-Ah-Plf"/>
+                                    <constraint firstItem="unj-xR-4qh" firstAttribute="top" secondItem="XJg-iY-8dM" secondAttribute="bottom" constant="8" id="znc-ia-vKv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -105,10 +145,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="characterCountCheckbox" destination="XJg-iY-8dM" id="sHr-ah-sDx"/>
                         <outlet property="containerView" destination="gug-t2-Bve" id="cB4-QX-Oi2"/>
+                        <outlet property="digitCheckbox" destination="unj-xR-4qh" id="kCa-9v-hLr"/>
                         <outlet property="emailTextField" destination="kiH-Hk-anr" id="NNv-zx-DTl"/>
                         <outlet property="loginButton" destination="BX3-43-Rcw" id="C8g-tz-InJ"/>
                         <outlet property="passwordTextField" destination="dxT-8p-AgO" id="FC2-ym-Q2z"/>
+                        <outlet property="specialCharacterCheckbox" destination="jPa-RZ-K4b" id="8xg-7C-Khj"/>
+                        <outlet property="upperCaseCheckbox" destination="aan-gg-Yu1" id="72K-Mv-jTA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -119,7 +163,7 @@
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

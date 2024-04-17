@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet private var sortByTitleButton: UIButton!
     @IBOutlet private var sortByAverageButton: UIButton!
     @IBOutlet private var sortByHitsButton: UIButton!
+    @IBOutlet private var sortOptionsView: UIView!
     @IBOutlet private var tableView: UITableView!
         
     private var interactor: HomeBusinessLogic?
@@ -27,6 +28,7 @@ class HomeViewController: UIViewController {
         didSet {
             toggleTableFooterView(show: false)
             tableView.reloadData()
+            toggleSortOptionsView(show: !books.isEmpty)
         }
     }
     
@@ -34,6 +36,7 @@ class HomeViewController: UIViewController {
         case title
         case average
         case hits
+        case none
     }
     
     private lazy var paginationIndicatorView: UIActivityIndicatorView = {
@@ -119,6 +122,10 @@ private extension HomeViewController {
             sortByHitsButton.backgroundColor = .lightGray
             sortByTitleButton.backgroundColor = .clear
             sortByAverageButton.backgroundColor = .clear
+        case .none:
+            sortByHitsButton.backgroundColor = .clear
+            sortByTitleButton.backgroundColor = .clear
+            sortByAverageButton.backgroundColor = .clear
         }
     }
     
@@ -131,6 +138,8 @@ private extension HomeViewController {
             books.sort { Float($0.ratingsAverage) ?? 0 > Float($1.ratingsAverage) ?? 0 }
         case .hits:
             books.sort { Int($0.ratingsCount) ?? 0 > Int($1.ratingsCount) ?? 0 }
+        case .none:
+            break
         }
     }
     
@@ -145,6 +154,13 @@ private extension HomeViewController {
             paginationIndicatorView.stopAnimating()
         }
     }
+    
+    func toggleSortOptionsView(show: Bool) {
+        sortOptionsView.isHidden = !show
+        if !show {
+            updateButtonsUI(sortType: .none)
+        }
+    }
 }
 
 // MARK: - HomeDisplayLogic
@@ -155,7 +171,10 @@ extension HomeViewController: HomeDisplayLogic {
     }
     
     func displayBooksData(viewModel: Home.Search.ViewModel) {
-        books = viewModel.books
+        if let searchText = searchBar.text,
+           searchText.count > 2 {
+            books = viewModel.books
+        }
     }
     
     func displayPaginatedData(viewModel: Home.Search.ViewModel) {
@@ -215,6 +234,7 @@ extension HomeViewController: UISearchBarDelegate {
         } else {
             books = []
         }
+        updateButtonsUI(sortType: .none)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

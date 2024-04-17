@@ -17,6 +17,10 @@ class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: TextField!
     @IBOutlet private var loginButton: UIButton!
     @IBOutlet private var containerView: UIView!
+    @IBOutlet private var characterCountCheckbox: CheckboxWithTitle!
+    @IBOutlet private var digitCheckbox: CheckboxWithTitle!
+    @IBOutlet private var upperCaseCheckbox: CheckboxWithTitle!
+    @IBOutlet private var specialCharacterCheckbox: CheckboxWithTitle!
         
     private var interactor: LoginBusinessLogic?
     private var router: LoginRouter?
@@ -43,12 +47,14 @@ class LoginViewController: UIViewController {
         if let text = emailTextField.text {
             updateErrorTextForEmail(email: text)
         }
+        updateLoginButton()
     }
     
     @IBAction func passwordChanged(_ sender: Any) {
         if let text = passwordTextField.text {
-            updateErrorTextForPassword(password: text)
+            updatePasswordValidationCheckboxes(password: text)
         }
+        updateLoginButton()
     }
     
     @IBAction private func handleLoginAction() {
@@ -68,6 +74,8 @@ class LoginViewController: UIViewController {
 private extension LoginViewController {
     func setup() {
         setupNavBarBackButton()
+        setupPasswordTextField()
+        setupPasswordCheckboxes()
     }
     
     func setupNavBarBackButton() {
@@ -77,6 +85,17 @@ private extension LoginViewController {
                                          action: nil)
         backButton.tintColor = .black
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    func setupPasswordTextField() {
+        passwordTextField.enableShowPasswordButton()
+    }
+    
+    func setupPasswordCheckboxes() {
+        characterCountCheckbox.setTitle(title: SignupStringConstants.characterCountRequirementText)
+        digitCheckbox.setTitle(title: SignupStringConstants.digitRequirementText)
+        upperCaseCheckbox.setTitle(title: SignupStringConstants.uppercaseRequirementText)
+        specialCharacterCheckbox.setTitle(title: SignupStringConstants.specialCharacterRequirementText)
     }
     
     func updateErrorTextForEmail(email: String) {
@@ -89,30 +108,53 @@ private extension LoginViewController {
         emailTextField.errorText = errorText
     }
     
-    func updateErrorTextForPassword(password: String) {
-        let errorText: String
-        if password.count < 8 {
-            errorText = LoginStringConstants.characterCountErrorText
-        } else if password.containsDigit() {
-            errorText = LoginStringConstants.digitErrorText
-        } else if password.containsUppercase() {
-            errorText = LoginStringConstants.uppercaseErrorText
-        } else if password.containsSpecialCharacter() {
-            errorText = LoginStringConstants.specialCharacterErrorText
-        } else {
-            errorText = ""
-        }
-        passwordTextField.errorText = errorText
-    }
-    
     func updateLoginButton() {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
-            let nonEmptyData = !email.isEmpty && !password.isEmpty
-            let validData = emailTextField.errorText.isEmpty && passwordTextField.errorText.isEmpty
-            loginButton.isEnabled = nonEmptyData && validData
+            let isEmailValid = email.isValidEmail()
+            let isPasswordValid = isPasswordValid(password: password)
+            loginButton.isEnabled = isEmailValid && isPasswordValid
+        }
+    }
+    
+    func updatePasswordValidationCheckboxes(password: String) {
+        if password.count < 8 {
+            characterCountCheckbox.setChecked(checked: false)
+        } else {
+            characterCountCheckbox.setChecked(checked: true)
         }
         
+        if !password.containsDigit() {
+            digitCheckbox.setChecked(checked: false)
+        } else {
+            digitCheckbox.setChecked(checked: true)
+        }
+        
+        if !password.containsUppercase() {
+            upperCaseCheckbox.setChecked(checked: false)
+        } else {
+            upperCaseCheckbox.setChecked(checked: true)
+        }
+        
+        if !password.containsSpecialCharacter() {
+            specialCharacterCheckbox.setChecked(checked: false)
+        } else {
+            specialCharacterCheckbox.setChecked(checked: true)
+        }
+    }
+    
+    func isPasswordValid(password: String) -> Bool {
+        var isValidPassword = true
+        if password.count < 8 {
+            isValidPassword = false
+        } else if !password.containsDigit() {
+            isValidPassword = false
+        } else if !password.containsUppercase() {
+            isValidPassword = false
+        } else if !password.containsSpecialCharacter() {
+            isValidPassword = false
+        }
+        return isValidPassword
     }
 }
 
@@ -141,7 +183,6 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            updateLoginButton()
             textField.resignFirstResponder()
         }
         return false

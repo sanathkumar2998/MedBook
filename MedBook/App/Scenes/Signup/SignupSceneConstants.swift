@@ -12,12 +12,10 @@ enum SignupSceneConstants {
 
 enum SignupStringConstants {
     // Password Requirements
-    static let passwordRequirementText = "Password must satisfy the following requirements"
-    static let characterCountRequirementText = "1. Atleast 8 characters"
-    static let digitRequirementText = "2. Must contain a number"
-    static let uppercaseRequirementText = "3. Must contain an uppercase letter"
-    static let specialCharacterRequirementText = "4. Must contain a special character"
-    static let separator = "\n\t "
+    static let characterCountRequirementText = "At least 8 characters"
+    static let digitRequirementText = "Must contain a number"
+    static let uppercaseRequirementText = "Must contain an uppercase letter"
+    static let specialCharacterRequirementText = "Must contain a special character"
     
     // Invalid Email Error
     static let invalidEmailText = "Invalid Email Address"

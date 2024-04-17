@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="671"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nB0-f3-E0A">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="644.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="748.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfS-W3-7a2">
                                                         <rect key="frame" x="16" y="16" width="361" height="30"/>
@@ -62,14 +62,36 @@
                                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="cfJ-VN-8Vk"/>
                                                         </connections>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password should satisfy below requirements " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJv-nS-9E3">
-                                                        <rect key="frame" x="16" y="300" width="361" height="16.333333333333314"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-EJ-GjL" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="276" width="361" height="32"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="zNE-F5-Fs7"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSf-sv-NML" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="316" width="361" height="32"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="MCM-Wg-yo7"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-qh-LQD" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="356" width="361" height="32"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="CJc-zj-6Ml"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eam-DK-MHA" customClass="CheckboxWithTitle" customModule="MedBook" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="396" width="361" height="32"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="qVy-8I-YaJ"/>
+                                                        </constraints>
+                                                    </view>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7X-Vs-TRd" customClass="PickerView" customModule="MedBook" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="340.33333333333331" width="361" height="140"/>
+                                                        <rect key="frame" x="16" y="444" width="361" height="140"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="140" id="bDd-MP-3Fc"/>
                                                         </constraints>
@@ -77,24 +99,33 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Bqj-qh-LQD" secondAttribute="trailing" constant="16" id="15G-WG-bWt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DAY-EJ-GjL" secondAttribute="trailing" constant="16" id="1rE-bF-5Jn"/>
+                                                    <constraint firstItem="RSf-sv-NML" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="4sF-CQ-CVF"/>
                                                     <constraint firstAttribute="trailing" secondItem="VfS-W3-7a2" secondAttribute="trailing" constant="16" id="8mc-KA-NgA"/>
                                                     <constraint firstItem="05w-OC-MqX" firstAttribute="top" secondItem="u31-t8-JNL" secondAttribute="bottom" constant="32" id="9aC-jO-XFm"/>
                                                     <constraint firstItem="u31-t8-JNL" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="AFq-wM-GvD"/>
+                                                    <constraint firstItem="Bqj-qh-LQD" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="AjH-FA-7oA"/>
+                                                    <constraint firstItem="DAY-EJ-GjL" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="CJP-WH-jjj"/>
                                                     <constraint firstItem="z7X-Vs-TRd" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="G44-YU-VMy"/>
-                                                    <constraint firstItem="z7X-Vs-TRd" firstAttribute="top" secondItem="xJv-nS-9E3" secondAttribute="bottom" constant="24" id="Gwm-Ca-8ba"/>
+                                                    <constraint firstItem="z7X-Vs-TRd" firstAttribute="top" secondItem="eam-DK-MHA" secondAttribute="bottom" constant="16" id="Gwm-Ca-8ba"/>
                                                     <constraint firstAttribute="trailing" secondItem="05w-OC-MqX" secondAttribute="trailing" constant="16" id="Hjl-GU-lm3"/>
                                                     <constraint firstAttribute="trailing" secondItem="kxE-C7-cPt" secondAttribute="trailing" constant="16" id="IKI-fe-pfm"/>
+                                                    <constraint firstItem="eam-DK-MHA" firstAttribute="top" secondItem="Bqj-qh-LQD" secondAttribute="bottom" constant="8" id="KW6-cH-itW"/>
                                                     <constraint firstItem="u31-t8-JNL" firstAttribute="top" secondItem="kxE-C7-cPt" secondAttribute="bottom" constant="32" id="LQd-Bu-cat"/>
                                                     <constraint firstAttribute="bottom" secondItem="z7X-Vs-TRd" secondAttribute="bottom" priority="750" constant="164.33000000000001" id="LYR-go-uZL"/>
                                                     <constraint firstItem="VfS-W3-7a2" firstAttribute="top" secondItem="nB0-f3-E0A" secondAttribute="top" constant="16" id="NZw-OP-iQU"/>
                                                     <constraint firstItem="VfS-W3-7a2" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="Q0K-yE-0y3"/>
+                                                    <constraint firstItem="RSf-sv-NML" firstAttribute="top" secondItem="DAY-EJ-GjL" secondAttribute="bottom" constant="8" id="QjR-yZ-RFc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RSf-sv-NML" secondAttribute="trailing" constant="16" id="cLg-MD-bPF"/>
+                                                    <constraint firstItem="DAY-EJ-GjL" firstAttribute="top" secondItem="05w-OC-MqX" secondAttribute="bottom" constant="24" id="dqt-lF-lwN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eam-DK-MHA" secondAttribute="trailing" constant="16" id="gJr-xP-A5A"/>
                                                     <constraint firstAttribute="trailing" secondItem="u31-t8-JNL" secondAttribute="trailing" constant="16" id="guI-jt-l7P"/>
-                                                    <constraint firstItem="xJv-nS-9E3" firstAttribute="top" secondItem="05w-OC-MqX" secondAttribute="bottom" constant="48" id="iml-cV-4kd"/>
                                                     <constraint firstAttribute="trailing" secondItem="z7X-Vs-TRd" secondAttribute="trailing" constant="16" id="ioP-fw-s5C"/>
                                                     <constraint firstItem="kxE-C7-cPt" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="kzk-p1-1nK"/>
-                                                    <constraint firstItem="xJv-nS-9E3" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="lz4-6g-cbl"/>
                                                     <constraint firstItem="05w-OC-MqX" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="r4U-ML-IcZ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xJv-nS-9E3" secondAttribute="trailing" constant="16" id="rC2-KE-td8"/>
+                                                    <constraint firstItem="Bqj-qh-LQD" firstAttribute="top" secondItem="RSf-sv-NML" secondAttribute="bottom" constant="8" id="s9e-DV-TMZ"/>
+                                                    <constraint firstItem="eam-DK-MHA" firstAttribute="leading" secondItem="nB0-f3-E0A" secondAttribute="leading" constant="16" id="uRr-df-5la"/>
                                                     <constraint firstItem="kxE-C7-cPt" firstAttribute="top" secondItem="VfS-W3-7a2" secondAttribute="bottom" constant="16" id="zhf-D7-UdM"/>
                                                 </constraints>
                                             </view>
@@ -155,12 +186,15 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Ug2-kq-Vdb" id="Bpg-h8-b5j"/>
+                        <outlet property="characterCountCheckbox" destination="DAY-EJ-GjL" id="px1-ob-Gkk"/>
                         <outlet property="containerView" destination="ks6-2z-efl" id="e50-qY-tuL"/>
                         <outlet property="countryPicker" destination="z7X-Vs-TRd" id="kD1-re-LbR"/>
+                        <outlet property="digitCheckbox" destination="RSf-sv-NML" id="5cc-cV-3ff"/>
                         <outlet property="emailTextField" destination="u31-t8-JNL" id="6hR-2y-J4o"/>
-                        <outlet property="passwordRequirementsLabel" destination="xJv-nS-9E3" id="cHp-xT-0VO"/>
                         <outlet property="passwordTextField" destination="05w-OC-MqX" id="t7K-Dg-G9o"/>
                         <outlet property="signupButton" destination="Fda-t1-P1Z" id="bcL-0N-OKN"/>
+                        <outlet property="specialCharacterCheckbox" destination="eam-DK-MHA" id="cqq-Ai-V6n"/>
+                        <outlet property="upperCaseCheckbox" destination="Bqj-qh-LQD" id="YUc-1P-uhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -171,7 +205,7 @@
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
