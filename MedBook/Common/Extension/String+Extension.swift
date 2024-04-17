@@ -18,18 +18,18 @@ extension String {
     func containsDigit() -> Bool {
         let regularExpression = ".*[0-9]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
-        return !predicate.evaluate(with: self)
+        return predicate.evaluate(with: self)
     }
     
     func containsUppercase() -> Bool {
         let regularExpression = ".*[A-Z]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
-        return !predicate.evaluate(with: self)
+        return predicate.evaluate(with: self)
     }
     
     func containsSpecialCharacter() -> Bool {
         let regularExpression = ".*[^A-Za-z0-9]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
-        return !predicate.evaluate(with: self)
+        return predicate.evaluate(with: self)
     }
 }

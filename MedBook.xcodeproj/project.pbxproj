@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		191E08BD2BC6A939006BC85C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191E08BC2BC6A939006BC85C /* TextField.swift */; };
+		1965429E2BCD380B007E89EF /* CheckboxWithTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1965429D2BCD380B007E89EF /* CheckboxWithTitle.xib */; };
+		196542A02BCD3838007E89EF /* CheckboxWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965429F2BCD3838007E89EF /* CheckboxWithTitle.swift */; };
+		19C610BB2BCD39EC008C9346 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C610BA2BCD39EC008C9346 /* NibLoadable.swift */; };
 		19CF5C5B2BC413CA000EF63F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CF5C5A2BC413CA000EF63F /* AppDelegate.swift */; };
 		19CF5C5D2BC413CA000EF63F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CF5C5C2BC413CA000EF63F /* SceneDelegate.swift */; };
 		19CF5C642BC413CC000EF63F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19CF5C632BC413CC000EF63F /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		191E08BC2BC6A939006BC85C /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1965429D2BCD380B007E89EF /* CheckboxWithTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxWithTitle.xib; sourceTree = "<group>"; };
+		1965429F2BCD3838007E89EF /* CheckboxWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithTitle.swift; sourceTree = "<group>"; };
+		19C610BA2BCD39EC008C9346 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		19CF5C572BC413CA000EF63F /* MedBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19CF5C5A2BC413CA000EF63F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19CF5C5C2BC413CA000EF63F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +148,23 @@
 				19DF6FF62BC7E6DA002E0CF6 /* PickerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1965429A2BCD37B6007E89EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1965429D2BCD380B007E89EF /* CheckboxWithTitle.xib */,
+				1965429F2BCD3838007E89EF /* CheckboxWithTitle.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		19C610B92BCD39DD008C9346 /* NibLoadable */ = {
+			isa = PBXGroup;
+			children = (
+				19C610BA2BCD39EC008C9346 /* NibLoadable.swift */,
+			);
+			path = NibLoadable;
 			sourceTree = "<group>";
 		};
 		19CF5C4E2BC413CA000EF63F = {
@@ -224,6 +247,7 @@
 		19CF5C732BC416B4000EF63F /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				1965429A2BCD37B6007E89EF /* Views */,
 				19CF5C8E2BC4511C000EF63F /* SignupPresenter.swift */,
 				19CF5C902BC4511C000EF63F /* SignupRouter.swift */,
 				19CF5C912BC4511C000EF63F /* SignupModels.swift */,
@@ -254,6 +278,7 @@
 		19CF5C752BC416CA000EF63F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				19C610B92BCD39DD008C9346 /* NibLoadable */,
 				191E08BB2BC6A928006BC85C /* Views */,
 				19CF5CA02BC559EC000EF63F /* NetworkManager */,
 				19CF5C882BC41A6A000EF63F /* Extension */,
@@ -464,6 +489,7 @@
 				19CF5C872BC419C1000EF63F /* Landing.storyboard in Resources */,
 				19CF5C672BC413CC000EF63F /* LaunchScreen.storyboard in Resources */,
 				19CF5C9D2BC45204000EF63F /* Signup.storyboard in Resources */,
+				1965429E2BCD380B007E89EF /* CheckboxWithTitle.xib in Resources */,
 				19DF70232BC85751002E0CF6 /* Home.storyboard in Resources */,
 				19DF70102BC82D40002E0CF6 /* Login.storyboard in Resources */,
 				19CF5C642BC413CC000EF63F /* Assets.xcassets in Resources */,
@@ -508,6 +534,7 @@
 				19DF6FF72BC7E6DA002E0CF6 /* PickerView.swift in Sources */,
 				19CF5C812BC41873000EF63F /* LandingRouter.swift in Sources */,
 				19E9D4162BC9455600200EA3 /* HomeSceneConstants.swift in Sources */,
+				19C610BB2BCD39EC008C9346 /* NibLoadable.swift in Sources */,
 				19CF5C8A2BC41A7A000EF63F /* UIStoryboard+Extension.swift in Sources */,
 				19CF5C842BC41873000EF63F /* LandingBuilder.swift in Sources */,
 				19DF701F2BC8568E002E0CF6 /* HomeViewController.swift in Sources */,
@@ -517,6 +544,7 @@
 				19DF700C2BC82CEE002E0CF6 /* LoginViewController.swift in Sources */,
 				19DF6FFE2BC810A3002E0CF6 /* CountryDetailsDataStore.swift in Sources */,
 				19DF6FE32BC7B6D5002E0CF6 /* CoreDataManager.swift in Sources */,
+				196542A02BCD3838007E89EF /* CheckboxWithTitle.swift in Sources */,
 				19DF6FF52BC7CE41002E0CF6 /* UserDetailsDataStore.swift in Sources */,
 				19CF5C952BC4511C000EF63F /* SignupPresenter.swift in Sources */,
 				19CF5CA52BC55C91000EF63F /* CountriesService.swift in Sources */,
