@@ -64,10 +64,12 @@ final class CoreDataManager: CoreDataProtocol {
         let persistentStoreURL = documentsDirectoryURL.appendingPathComponent(storeName)
 
         do {
+            let options = [NSInferMappingModelAutomaticallyOption : true,
+                     NSMigratePersistentStoresAutomaticallyOption : true]
             try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
                                                               configurationName: nil,
                                                               at: persistentStoreURL,
-                                                              options: nil)
+                                                              options: options)
         } catch {
             fatalError("Unable to Load Persistent Store")
         }

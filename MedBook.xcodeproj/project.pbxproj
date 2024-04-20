@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190665B02BD17EB000593F65 /* BookmarksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665A92BD17EB000593F65 /* BookmarksPresenter.swift */; };
+		190665B22BD17EB000593F65 /* BookmarksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665AB2BD17EB000593F65 /* BookmarksRouter.swift */; };
+		190665B32BD17EB000593F65 /* BookmarksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665AC2BD17EB000593F65 /* BookmarksModels.swift */; };
+		190665B42BD17EB000593F65 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665AD2BD17EB000593F65 /* BookmarksViewController.swift */; };
+		190665B52BD17EB000593F65 /* BookmarksBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665AE2BD17EB000593F65 /* BookmarksBuilder.swift */; };
+		190665B62BD17EB000593F65 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665AF2BD17EB000593F65 /* BookmarksInteractor.swift */; };
+		190665B82BD17F1A00593F65 /* Bookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190665B72BD17F1A00593F65 /* Bookmarks.storyboard */; };
+		190665BA2BD180A200593F65 /* BookmarksSceneConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665B92BD180A200593F65 /* BookmarksSceneConstants.swift */; };
+		190665BF2BD2454500593F65 /* BookmarkDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665BD2BD2454500593F65 /* BookmarkDetails+CoreDataClass.swift */; };
+		190665C02BD2454500593F65 /* BookmarkDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665BE2BD2454500593F65 /* BookmarkDetails+CoreDataProperties.swift */; };
+		190665C22BD2486800593F65 /* BookmarkDetailsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190665C12BD2486800593F65 /* BookmarkDetailsDataStore.swift */; };
 		191E08BD2BC6A939006BC85C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191E08BC2BC6A939006BC85C /* TextField.swift */; };
 		1965429E2BCD380B007E89EF /* CheckboxWithTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1965429D2BCD380B007E89EF /* CheckboxWithTitle.xib */; };
 		196542A02BCD3838007E89EF /* CheckboxWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965429F2BCD3838007E89EF /* CheckboxWithTitle.swift */; };
@@ -68,6 +79,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190665A92BD17EB000593F65 /* BookmarksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksPresenter.swift; sourceTree = "<group>"; };
+		190665AB2BD17EB000593F65 /* BookmarksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRouter.swift; sourceTree = "<group>"; };
+		190665AC2BD17EB000593F65 /* BookmarksModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksModels.swift; sourceTree = "<group>"; };
+		190665AD2BD17EB000593F65 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		190665AE2BD17EB000593F65 /* BookmarksBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksBuilder.swift; sourceTree = "<group>"; };
+		190665AF2BD17EB000593F65 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
+		190665B72BD17F1A00593F65 /* Bookmarks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bookmarks.storyboard; sourceTree = "<group>"; };
+		190665B92BD180A200593F65 /* BookmarksSceneConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksSceneConstants.swift; sourceTree = "<group>"; };
+		190665BB2BD2436500593F65 /* MedBookv2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MedBookv2.xcdatamodel; sourceTree = "<group>"; };
+		190665BD2BD2454500593F65 /* BookmarkDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookmarkDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
+		190665BE2BD2454500593F65 /* BookmarkDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookmarkDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		190665C12BD2486800593F65 /* BookmarkDetailsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDetailsDataStore.swift; sourceTree = "<group>"; };
 		191E08BC2BC6A939006BC85C /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1965429D2BCD380B007E89EF /* CheckboxWithTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxWithTitle.xib; sourceTree = "<group>"; };
 		1965429F2BCD3838007E89EF /* CheckboxWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithTitle.swift; sourceTree = "<group>"; };
@@ -141,6 +164,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190665A82BD17E6000593F65 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				190665A92BD17EB000593F65 /* BookmarksPresenter.swift */,
+				190665AB2BD17EB000593F65 /* BookmarksRouter.swift */,
+				190665AC2BD17EB000593F65 /* BookmarksModels.swift */,
+				190665AD2BD17EB000593F65 /* BookmarksViewController.swift */,
+				190665AE2BD17EB000593F65 /* BookmarksBuilder.swift */,
+				190665AF2BD17EB000593F65 /* BookmarksInteractor.swift */,
+				190665B72BD17F1A00593F65 /* Bookmarks.storyboard */,
+				190665B92BD180A200593F65 /* BookmarksSceneConstants.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		190665BC2BD2452000593F65 /* BookmarkDetails */ = {
+			isa = PBXGroup;
+			children = (
+				190665BD2BD2454500593F65 /* BookmarkDetails+CoreDataClass.swift */,
+				190665BE2BD2454500593F65 /* BookmarkDetails+CoreDataProperties.swift */,
+			);
+			path = BookmarkDetails;
+			sourceTree = "<group>";
+		};
 		191E08BB2BC6A928006BC85C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +249,7 @@
 				19CF5C732BC416B4000EF63F /* Signup */,
 				19CF5C742BC416B9000EF63F /* Login */,
 				19DF70132BC8567B002E0CF6 /* Home */,
+				190665A82BD17E6000593F65 /* Bookmarks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -354,6 +402,7 @@
 		19DF6FEF2BC7CD9B002E0CF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				190665BC2BD2452000593F65 /* BookmarkDetails */,
 				19DF6FFC2BC80F91002E0CF6 /* CountryDetails */,
 				19DF6FF02BC7CDA0002E0CF6 /* UserDetails */,
 			);
@@ -384,6 +433,7 @@
 			children = (
 				19DF6FF42BC7CE41002E0CF6 /* UserDetailsDataStore.swift */,
 				19DF6FFD2BC810A3002E0CF6 /* CountryDetailsDataStore.swift */,
+				190665C12BD2486800593F65 /* BookmarkDetailsDataStore.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -487,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19CF5C872BC419C1000EF63F /* Landing.storyboard in Resources */,
+				190665B82BD17F1A00593F65 /* Bookmarks.storyboard in Resources */,
 				19CF5C672BC413CC000EF63F /* LaunchScreen.storyboard in Resources */,
 				19CF5C9D2BC45204000EF63F /* Signup.storyboard in Resources */,
 				1965429E2BCD380B007E89EF /* CheckboxWithTitle.xib in Resources */,
@@ -504,9 +555,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190665B42BD17EB000593F65 /* BookmarksViewController.swift in Sources */,
+				190665C22BD2486800593F65 /* BookmarkDetailsDataStore.swift in Sources */,
 				19CF5CA72BC56F71000EF63F /* GeolocationService.swift in Sources */,
 				19DF701E2BC8568E002E0CF6 /* HomeModels.swift in Sources */,
 				19CF5CA22BC559FA000EF63F /* NetworkManager.swift in Sources */,
+				190665BA2BD180A200593F65 /* BookmarksSceneConstants.swift in Sources */,
 				19DF70212BC8568E002E0CF6 /* HomeInteractor.swift in Sources */,
 				19DF700E2BC82CEE002E0CF6 /* LoginInteractor.swift in Sources */,
 				19E9D4182BC94D4000200EA3 /* BookListingService.swift in Sources */,
@@ -527,19 +581,26 @@
 				19DF700A2BC82CEE002E0CF6 /* LoginRouter.swift in Sources */,
 				19DF70002BC82C5F002E0CF6 /* UserDefaults+Extension.swift in Sources */,
 				19DF6FED2BC7CD4C002E0CF6 /* UserDetails+CoreDataClass.swift in Sources */,
+				190665B32BD17EB000593F65 /* BookmarksModels.swift in Sources */,
 				19CF5CAA2BC58C73000EF63F /* CountriesDataProvider.swift in Sources */,
 				19CF5C972BC4511C000EF63F /* SignupRouter.swift in Sources */,
 				19DF701D2BC8568E002E0CF6 /* HomeRouter.swift in Sources */,
+				190665B52BD17EB000593F65 /* BookmarksBuilder.swift in Sources */,
+				190665B02BD17EB000593F65 /* BookmarksPresenter.swift in Sources */,
 				19DF701B2BC8568E002E0CF6 /* HomePresenter.swift in Sources */,
 				19DF6FF72BC7E6DA002E0CF6 /* PickerView.swift in Sources */,
 				19CF5C812BC41873000EF63F /* LandingRouter.swift in Sources */,
 				19E9D4162BC9455600200EA3 /* HomeSceneConstants.swift in Sources */,
 				19C610BB2BCD39EC008C9346 /* NibLoadable.swift in Sources */,
 				19CF5C8A2BC41A7A000EF63F /* UIStoryboard+Extension.swift in Sources */,
+				190665B22BD17EB000593F65 /* BookmarksRouter.swift in Sources */,
+				190665BF2BD2454500593F65 /* BookmarkDetails+CoreDataClass.swift in Sources */,
 				19CF5C842BC41873000EF63F /* LandingBuilder.swift in Sources */,
 				19DF701F2BC8568E002E0CF6 /* HomeViewController.swift in Sources */,
+				190665B62BD17EB000593F65 /* BookmarksInteractor.swift in Sources */,
 				19CF5C8D2BC41AF1000EF63F /* LandingSceneConstants.swift in Sources */,
 				19CF5C9A2BC4511C000EF63F /* SignupBuilder.swift in Sources */,
+				190665C02BD2454500593F65 /* BookmarkDetails+CoreDataProperties.swift in Sources */,
 				19CF5C992BC4511C000EF63F /* SignupViewController.swift in Sources */,
 				19DF700C2BC82CEE002E0CF6 /* LoginViewController.swift in Sources */,
 				19DF6FFE2BC810A3002E0CF6 /* CountryDetailsDataStore.swift in Sources */,
@@ -789,9 +850,10 @@
 		19DF6FE42BC7B6F1002E0CF6 /* MedBook.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				190665BB2BD2436500593F65 /* MedBookv2.xcdatamodel */,
 				19DF6FE52BC7B6F1002E0CF6 /* MedBook.xcdatamodel */,
 			);
-			currentVersion = 19DF6FE52BC7B6F1002E0CF6 /* MedBook.xcdatamodel */;
+			currentVersion = 190665BB2BD2436500593F65 /* MedBookv2.xcdatamodel */;
 			path = MedBook.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

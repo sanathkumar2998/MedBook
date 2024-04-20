@@ -6,10 +6,6 @@
 
 import UIKit
 
-// If we have multiple dependencies, we should use a container.
-//struct DependencyContainer {
-//}
-
 protocol HomeSceneBuilder {
     func build() -> HomeViewController
 }
@@ -25,8 +21,10 @@ class HomeBuilder: HomeSceneBuilder {
 
         // Inject dependencies into the interactor and create it.
         let bookListingService = BookListingService(networkManager: NetworkManager.shared)
+        let bookmarkDetailsDataStore = BookmarkDetailsDataStore(coreData: CoreDataManager.shared)
         let interactor = HomeInteractor(presenter: presenter,
-                                        bookListingService: bookListingService)
+                                        bookListingService: bookListingService,
+                                        bookmarkDetailsDataStore: bookmarkDetailsDataStore)
         
         let router: HomeRouter = HomeRouter(viewController: viewController)
                 

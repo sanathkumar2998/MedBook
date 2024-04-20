@@ -10,6 +10,8 @@ protocol HomePresentationLogic {
     func presentLogoutActionSuccessful(response: Home.Logout.Response)
     func presentBooksData(response: Home.Search.Response)
     func presentPaginatedData(response: Home.Search.Response)
+    func presentAddBookmarkSuccess(response: Home.Bookmark.Response)
+    func presentRemoveBookmarkSuccess(response: Home.Bookmark.Response)
 }
 
 
@@ -39,20 +41,38 @@ class HomePresenter: HomePresentationLogic {
         viewController?.displayPaginatedData(viewModel: viewModel)
     }
     
-    private func convertToViewModel(response: Home.Search.Response) -> [BookViewModel] {
+    func presentAddBookmarkSuccess(response: Home.Bookmark.Response) {
+        let viewModel = Home.Bookmark.ViewModel(key: response.key)
+        viewController?.displayAddBookmarkSuccess(viewModel: viewModel)
+    }
+    
+    func presentRemoveBookmarkSuccess(response: Home.Bookmark.Response) {
+        let viewModel = Home.Bookmark.ViewModel(key: response.key)
+        viewController?.displayRemoveBookmarkSuccess(viewModel: viewModel)
+    }
+}
+
+// MARK: - Private methods
+
+private extension HomePresenter {
+    func convertToViewModel(response: Home.Search.Response) -> [BookViewModel] {
         var books: [BookViewModel] = []
-        response.bookListing.docs.forEach {
+        response.books.forEach {
             var coverImageURLString: String = ""
             if let coverI = $0.coverI {
                 coverImageURLString = String(format: coverImageAPI, String(coverI))
             }
             let ratingsAverage = String(format: "%.2f", $0.ratingsAverage ?? 0)
             let ratingsCount = String($0.ratingsCount ?? 0)
-            let book = BookViewModel(title: $0.title ?? "",
+            let key = $0.key
+            let isBookmarked = response.bookmarkedKeys.contains(key ?? "")
+            let book = BookViewModel(key: key,
+                                     title: $0.title ?? "",
                                      ratingsAverage: ratingsAverage,
                                      ratingsCount: ratingsCount,
-                                     authorName: $0.authorName.first ?? "",
-                                     coverImageURLString: coverImageURLString)
+                                     authorName: $0.authorName?.first ?? "",
+                                     coverImageURLString: coverImageURLString,
+                                     isBookmarked: isBookmarked)
             books.append(book)
         }
         return books

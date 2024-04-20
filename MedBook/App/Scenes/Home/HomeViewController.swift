@@ -10,6 +10,8 @@ protocol HomeDisplayLogic: AnyObject {
     func displayLogoutActionSuccessful(viewModel: Home.Logout.ViewModel)
     func displayBooksData(viewModel: Home.Search.ViewModel)
     func displayPaginatedData(viewModel: Home.Search.ViewModel)
+    func displayAddBookmarkSuccess(viewModel: Home.Bookmark.ViewModel)
+    func displayRemoveBookmarkSuccess(viewModel: Home.Bookmark.ViewModel)
 }
 
 class HomeViewController: UIViewController {
@@ -69,6 +71,10 @@ class HomeViewController: UIViewController {
     
     @IBAction func handleLogoutAction() {
         interactor?.handleLogoutAction(request: Home.Logout.Request())
+    }
+    
+    @IBAction func handleBookmarksAction() {
+        router?.navigate(to: .bookmarks)
     }
     
     @IBAction func handleSortByTitleAction() {
@@ -161,6 +167,22 @@ private extension HomeViewController {
             updateButtonsUI(sortType: .none)
         }
     }
+    
+    func addBookmark(indexPath: IndexPath) {
+        let request = Home.Bookmark.Request(key: books[indexPath.row].key)
+        interactor?.addBookmark(request: request)
+    }
+    
+    func removeBookmark(indexPath: IndexPath) {
+        let request = Home.Bookmark.Request(key: books[indexPath.row].key)
+        interactor?.removeBookmark(request: request)
+    }
+    
+    func updateIsBookmarked(key: String?, value: Bool) {
+        if let index = books.firstIndex(where: { $0.key == key }) {
+            books[index].isBookmarked = value
+        }
+    }
 }
 
 // MARK: - HomeDisplayLogic
@@ -174,11 +196,21 @@ extension HomeViewController: HomeDisplayLogic {
         if let searchText = searchBar.text,
            searchText.count > 2 {
             books = viewModel.books
+        } else {
+            books = []
         }
     }
     
     func displayPaginatedData(viewModel: Home.Search.ViewModel) {
         books.append(contentsOf: viewModel.books)
+    }
+    
+    func displayAddBookmarkSuccess(viewModel: Home.Bookmark.ViewModel) {
+        updateIsBookmarked(key: viewModel.key, value: true)
+    }
+    
+    func displayRemoveBookmarkSuccess(viewModel: Home.Bookmark.ViewModel) {
+        updateIsBookmarked(key: viewModel.key, value: false)
     }
 }
 
@@ -221,6 +253,36 @@ extension HomeViewController: UITableViewDelegate {
             interactor?.searchBooks(request: request)
         }
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let bookmarkAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view,
+            completion in
+            guard let self else { return }
+            
+            if books[indexPath.row].isBookmarked {
+                self.removeBookmark(indexPath: indexPath)
+            } else {
+                self.addBookmark(indexPath: indexPath)
+            }
+            completion(true)
+        }
+        
+        let sizeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold)
+        let imageName: String
+        if books[indexPath.row].isBookmarked {
+            imageName = HomeStringConstants.bookmarkFillImageName
+        } else {
+            imageName = HomeStringConstants.bookmarkImageName
+        }
+        
+        let image = UIImage(systemName: imageName,
+                            withConfiguration: sizeConfig)?
+            .withTintColor(.black, renderingMode: .alwaysOriginal)
+        bookmarkAction.image = image
+        bookmarkAction.backgroundColor = .systemGray6
+        let configuration = UISwipeActionsConfiguration(actions: [bookmarkAction])
+        return configuration
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -239,5 +301,14 @@ extension HomeViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+}
+
+// MARK: - RemoveBookmarkDelegate
+
+extension HomeViewController: RemoveBookmarkDelegate {
+    func bookmarkRemoved(key: String?) {
+        updateIsBookmarked(key: key, value: false)
+        interactor?.refresh()
     }
 }
