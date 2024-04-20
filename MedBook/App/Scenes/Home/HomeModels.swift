@@ -23,11 +23,26 @@ enum Home {
         }
         
         struct Response {
-            let bookListing: BookListingData
+            let books: [BookDetails]
+            let bookmarkedKeys: [String]
         }
         
         struct ViewModel {
             let books: [BookViewModel]
+        }
+    }
+    
+    enum Bookmark {
+        struct Request {
+            let key: String?
+        }
+        
+        struct Response {
+            let key: String?
+        }
+        
+        struct ViewModel {
+            let key: String?
         }
     }
     
@@ -38,9 +53,11 @@ enum Home {
 }
 
 struct BookViewModel: BookCellData {
+    let key: String?
     let title: String
     let ratingsAverage: String
     let ratingsCount: String
     let authorName: String
     let coverImageURLString: String
+    var isBookmarked: Bool
 }

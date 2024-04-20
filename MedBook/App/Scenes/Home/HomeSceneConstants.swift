@@ -12,3 +12,9 @@ enum HomeSceneConstants {
     static let homeViewController = "HomeViewController"
     static let bookTableViewCell = "BookTableViewCell"
 }
+
+enum HomeStringConstants {
+    // Bookmark Image
+    static let bookmarkImageName = "bookmark"
+    static let bookmarkFillImageName = "bookmark.fill"
+}
